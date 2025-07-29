@@ -1,0 +1,92 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Blog</title>{% endblock %}
+</head>
+<body>
+    
+{% block content %}
+<section class="blog_post">
+  <h1 style="font-size: 20px;">{{ blog.title }}</h1>
+
+  {% if blog.image %}
+  <img src="{{blog.image.url }}" alt="{{ blog.title }}"  class="blog-image">
+  {% endif %}
+  {% if blog.video %}
+  <div class="video-container">
+   <source src="{{ blog.video.url }}" type="video/mp4">
+    <video controls class="blog-video">
+      <source src="{{ blog.video.url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  {% endif %}
+
+  <div class="content">
+    <p><strong>{{ blog.location_name }}</strong></p>
+    <p>{{ blog.content|linebreaks}}</p>
+  </div>
+
+  <div class="status">
+    {% if blog.markas_soled %}
+  <span style="color:red;">Soled</span>
+  {% elif blog.markas_available %}
+  <span style="color:green;">Available</span>
+  {% else %}
+  <span>Not Available</span>
+  {% endif %}
+  </div>
+  <div class="timestamps">
+    <p><strong>Create at:</strong>{{blog.created_at}}</p>
+    <p><strong>coordinates:</strong> {{ blog.latitude }}, {{blog.longitude}} </p>
+    <a href="{{ blog.get_map_url }}" target="_blank" class="map-link">View on Google Maps</a>
+  </div>
+
+   <button type="submit"><a href="{% url 'blog-list'%}">Back</a></button>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3> HectaresPro</h3>
+      <p>Bringing you the best products and services since 2020.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{%url 'home'%}">Home</a></li>
+        <li><a href="{%url 'about'%}">About Us</a></li>
+        <li><a href="{%url 'contact'%}">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="{%static 'mainapp/img/facebook.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/instagram.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/linkedin.svg'%}" alt=""></i></a>
+        <a href="#"><img src="{%static 'mainapp/img/twiter-x.svg'%}" alt=""></i></a>
+      </div>
+      <div class="company_info">
+        <h3>Email:</h3><p>hectarespro@gmail.com</p>
+        <h3>Call:</h3><p>08065432993 or </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 HectaresPro. All rights reserved.</p>
+  </div>
+</footer>
+
+   
+{% endblock %}
+
+</body>
+</html>

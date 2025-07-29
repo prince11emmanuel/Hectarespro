@@ -1,0 +1,214 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Home</title>{% endblock %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
+    
+</head>
+<body>
+   
+{% block content %}
+<section class="home_section">
+    
+    <div class="content">
+        <div >
+        <h1 class="welcome">Welcome to HectaresPro</h1>
+
+        
+    </div>
+         <button type="button" ><a href="{% url 'contact'%}">connect</a></button>
+    </div>
+
+</section>
+
+
+<section class="explore">
+  <div class="explore_label">
+    <h1 style="font-size: 20px;">Explore Our Services</h1>
+  </div>
+  <div class="explor_content">
+    <img src="{% static 'mainapp/img/exp2.jpg'%}" alt="" class="explor_img">
+    <div class="hspace">
+      
+    </div>
+    <div class="explor_item">
+      <h4>
+        At HectaresPro, we are committed to turning your dream property
+        into a reality—through trusted expertise, personalized service,
+        and a passion for helping you find the perfect space.
+    </h4>
+    <div class="box_services">
+        <p><strong>Our Services</strong></p>
+        <h6>At HectaresPro, we specialize in this core areas of expertise:</h6>
+        <ul>
+            <li>Real Estate</li>
+            <li>Buying and Selling of Property</li>
+            <li>Lands and Estates</li>
+            <li>Interior Design</li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="counter_section">
+  <div class="counterbox">
+    <h2 id="clients-count">0</h2>
+    <p>Happy Clients</p>
+  </div>
+
+  <div class="counterbox">
+    <h2 id="jobs-count">0</h2>
+    <p>Jobs Done</p>
+  </div>
+
+  <div class="counterbox">
+    <h2 id="experience-count">0</h2>
+    <p>Years of Experience</p>
+  </div>
+
+  <script>
+    function animateCounter(id, target, duration) {
+  const element = document.getElementById(id);
+  let start = 0;
+  const increment = Math.ceil(target / (duration / 30)); // 30ms per frame
+
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = start;
+    }
+  }, 30); // Update every 30ms
+}
+
+// Start counting when the DOM is fully loaded
+window.addEventListener("DOMContentLoaded", () => {
+  animateCounter("clients-count", 10, 2000);
+  animateCounter("jobs-count", 20, 2000);
+  animateCounter("experience-count", 3, 2000);
+});
+
+  </script>
+</section>
+
+<section id="client-reviews">
+  <div class="review-container">
+    <div class="review-slide active">
+      <img src="{% static 'mainapp/img/client.jpg'%}" alt="" class="client_img">
+      <p class="cliect-content-text">"“HectaresPro truly made owning land a seamless and hassle-free experience. Their team is highly professional, transparent, and responsive throughout the entire process. From initial inquiry to final documentation, everything was handled efficiently, giving me full confidence and peace of mind. I highly recommend HectaresPro 
+        to anyone looking to invest in land with ease and trust.”"</p>
+      <h4>- Chinedu Okafor</h4>
+    </div>
+    <div class="review-slide">
+      <img src="{% static 'mainapp/img/client.jpg'%}" alt="" class="client_img">
+      <p class="cliect-content-text">“The support from HectaresPro was excellent from start
+         to finish. Their team guided me through every step, 
+         answering all my questions promptly and professionally. The process was smooth, transparent, and stress-free. I highly recommend their services to anyone looking to buy land confidently and without hassle.”
+
+</p>
+      <h4>- Fatima Suleiman</h4>
+    </div>
+    <div class="review-slide">
+      <img src="{% static 'mainapp/img/client.jpg'%}" alt="" class="client_img">
+      <p class="cliect-content-text">“Great experience overall with HectaresPro! The process
+         was quick and straightforward, and the pricing was
+          completely transparent with no hidden fees. I really 
+          appreciated their professionalism and clear 
+          communication throughout. Love it!”
+
+</p>
+      <h4>- Bisi Johnson</h4>
+    </div>
+  </div>
+
+  <!-- Optional navigation buttons -->
+  <div class="review-controls">
+    <button onclick="prevReview()">&#10094;</button>
+    <button onclick="nextReview()">&#10095;</button>
+  </div>
+
+  <script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".review-slide");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextReview() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  function prevReview() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  // Auto-slide every 5 seconds
+  setInterval(nextReview, 5000);
+</script>
+
+</section>
+
+
+
+<div class="space">
+
+</div>
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3> HectaresPro</h3>
+      <p>Bringing you the best products and services since 2020.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{%url 'home'%}">Home</a></li>
+        <li><a href="{%url 'about'%}">About Us</a></li>
+        <li><a href="{%url 'contact'%}">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="{%static 'mainapp/img/facebook.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/instagram.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/linkedin.svg'%}" alt=""></i></a>
+        <a href="#"><img src="{%static 'mainapp/img/twiter-x.svg'%}" alt=""></i></a>
+      </div>
+      <div class="company_info">
+        <h3>Email:</h3><p>hectarespro@gmail.com</p>
+        <h3>Call:</h3><p>08065432993 or </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 HectaresPro. All rights reserved.</p>
+  </div>
+</footer>
+
+{% endblock %}
+<script src="{% static 'mainapp/js/count.js' %}"></script>
+
+
+
+</body>
+</html>

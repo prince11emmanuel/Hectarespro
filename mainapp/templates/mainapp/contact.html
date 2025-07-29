@@ -1,0 +1,80 @@
+{% extends 'mainapp/base.html' %} 
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Contact</title>{% endblock %}
+</head>
+<body>
+    {% block content %}
+<section class="contact_section">
+    <div class="content">
+        <h1 class="welcome" style="color: #fff;">Contact Us</h1>
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_message">Message:</label>
+                {{ form.message }}
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3> HectaresPro</h3>
+      <p>Bringing you the best products and services since 2020.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{%url 'home'%}" class="icon">Home</a></li>
+        <li><a href="{%url 'about'%}"  class="icon">About Us</a></li>
+        <li><a href="{%url 'contact'%}"  class="icon">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="{%static 'mainapp/img/facebook.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/instagram.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/linkedin.svg'%}" alt=""></i></a>
+        <a href="#"><img src="{%static 'mainapp/img/twiter-x.svg'%}" alt=""></i></a>
+      </div>
+      <div class="company_info">
+        <h3>Email:</h3><p>hectarespro@gmail.com</p>
+        <h3>Call:</h3><p>08065432993 or </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 HectaresPro. All rights reserved.</p>
+  </div>
+</footer>
+
+{% endblock %}
+
+</body>
+</html>

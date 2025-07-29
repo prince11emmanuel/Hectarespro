@@ -1,0 +1,97 @@
+{% extends 'mainapp/base.html' %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+   {% block title %}<title>Blog</title>{% endblock %}
+    
+</head>
+<body>
+{% block content %}
+   <div class="blog-container">
+    <h1>Blog List</h1>
+    <div class="blog-content">
+        {% if blogs %}
+            {% for blog in blogs %}
+                <div class="blog-item">
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="blogimg">
+                    {% endif %}
+                    {% comment %} Check if the blog has a video and display it if available {% endcomment %}
+                    {# Display video if it exists #}
+                    {% comment %} This will ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} This is to ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} Check if the blog has a video and display it if available {% endcomment %}
+                    {% comment %} This will ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} This is to ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} Check if the blog has a video and display it if available {% endcomment %}
+                    {% comment %} This will ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} This is to ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} Check if the blog has a video and display it if available {% endcomment %}
+                    {% comment %} This will ensure that the blog has a video before trying to display it {% endcomment %}
+                    {% comment %} This is to ensure that the blog has a video before trying to display it {% endcomment %}
+                    
+                    {% if blog.video %}
+                        <video controls class="blog-video">
+                            <source src="{{ blog.video.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% endif %}
+                    <div class="blog-title">
+                        <a href="{% url 'blog' blog.pk %}"  style="font-size:15px;">{{ blog.title }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-blogs">No blogs available.</p>
+        {% endif %}
+    </div>
+
+    <div class="pagination">
+        {% if blogs.has_previous %}
+            <a href="?page={{ blogs.previous_page_number }}" class="page-link">Previous</a>
+        {% endif %}
+        <span class="page-info">Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}</span>
+        {% if blogs.has_next %}
+            <a href="?page={{ blogs.next_page_number }}" class="page-link">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3> HectaresPro</h3>
+      <p>Bringing you the best products and services since 2020.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{%url 'home'%}">Home</a></li>
+        <li><a href="{%url 'about'%}">About Us</a></li>
+        <li><a href="{%url 'contact'%}">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="{%static 'mainapp/img/facebook.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/instagram.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/linkedin.svg'%}" alt=""></i></a>
+        <a href="#"><img src="{%static 'mainapp/img/twiter-x.svg'%}" alt=""></i></a>
+      </div>
+      <div class="company_info">
+        <h3>Email:</h3><p>hectarespro@gmail.com</p>
+        <h3>Call:</h3><p>08065432993 or </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 HectaresPro. All rights reserved.</p>
+  </div>
+</footer>
+{%endblock%}
+</body>

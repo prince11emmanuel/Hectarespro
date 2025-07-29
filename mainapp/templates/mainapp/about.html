@@ -1,0 +1,122 @@
+{% extends 'mainapp/base.html' %}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>About</title>{% endblock %}
+</head>
+<body>
+    
+{% block content %}
+<section class="about_section">
+    
+    <div class="content">
+        <div >
+        <h1 class="welcome">About HectaresPro</h1>
+        <h3>At HectaresPro we take pride in building Your Palace</h3>
+
+        
+    </div>
+         <!-- <button type="button" ><a href="{% url 'contact'%}">connect</a></button> -->
+    </div>
+
+</section>
+<section class="about_company">
+    <div class="company_tag">
+        <h1>About Our Company</h1>
+    </div>
+    <div class="company_content">
+        <div class="line">
+        </div>
+        <div class="content_text">
+            <h1><strong>W</strong>elcom to HectaresPro Official Website </h1>
+            <br> <blockquote>In this page we will answer all your questions
+            about our service </blockquote> 
+            <p> HectaresPro was founded inthe Year 2024 in Nigeria by Eng Adebayo Agbaje, the company was built upon building and bring clients 
+                dream appartment or Investment to realiaty, in the word we life today an average citizen find it dificult to 
+            hone a proparty of His or Her hone but HectaresPro is here to solve that problem making you have and hone your proparty 
+            in  Abuja and in Nigeria At large. We specialize in providing you your hone affordable appart ment and proparty, be it Landed proparty or Houseing
+            to soot your need be it construction of School, Resendital area, Hospital, Church, Petrol Statuin, Warehousde, Production Factory, name any aspect of Real estate we are 
+            avelable to provide you what you aspire for, we also accept contract for Interior Desigh giving your investment the luxery look it deserve, we specialize in Resendital Interior Design, Office Design etc.
+              </p>
+
+              <h1>Why HectaresPro ?</h1> <br> <p>
+                <blockquote> As we have discurse Earlea we make sure probarty is affordable and Legitimate
+                    any were in Nigeria to soot your needs.
+                </blockquote>
+              </p>
+        </div>
+    </div>
+</section>
+
+<section id="about-ceo">
+    <div class="ceocontent" >
+        <img src="{% static 'mainapp/img/ceo.jpg'%}" alt="" class="ceo_image">
+    </div>
+    <div class="ceocontent">
+        <p>
+            <strong>Eng Adebayo Agbaje</strong> 
+            <h4>is the CEO of HectaresPro, he is a Civil Engineer with over 10 years of experience in the construction industry. He has worked on various projects ranging from residential buildings to commercial complexes. His vision for HectaresPro is to make property ownership accessible to everyone in Nigeria.
+            <br><br>
+            Eng Adebayo is passionate about using technology to improve the real estate sector in Nigeria. He believes that with the right tools and resources, anyone can achieve their dream of owning a property. Under his leadership, HectaresPro aims to revolutionize the way people buy, sell, and manage properties in Nigeria.
+            <br><br>
+            Eng Adebayo is committed to providing excellent customer service and ensuring that every client receives personalized attention. He is dedicated to building long-lasting relationships with clients and partners, and he strives to exceed expectations in every project.
+            <br><br>
+            With his expertise and vision, Eng Adebayo Agbaje is leading HectaresPro towards a brighter future in the real estate industry.
+            <br><br>
+            
+            <br>
+            
+        </p></h4>
+        
+    </div>
+    
+
+</section>
+
+
+    
+
+    
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3> HectaresPro</h3>
+      <p>Bringing you the best products and services since 2020.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{%url 'home'%}">Home</a></li>
+        <li><a href="{%url 'about'%}">About Us</a></li>
+        <li><a href="{%url 'contact'%}">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><img src="{%static 'mainapp/img/facebook.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/instagram.svg'%}" alt=""></a>
+        <a href="#"><img src="{%static 'mainapp/img/linkedin.svg'%}" alt=""></i></a>
+        <a href="#"><img src="{%static 'mainapp/img/twiter-x.svg'%}" alt=""></i></a>
+      </div>
+      <div class="company_info">
+        <h3>Email:</h3><p>hectarespro@gmail.com</p>
+        <h3>Call:</h3><p>08065432993 or </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 HectaresPro. All rights reserved.</p>
+  </div>
+</footer>
+
+{% endblock %}
+
+</body>
+</html>

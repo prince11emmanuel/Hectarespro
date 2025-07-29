@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loading - HectaresPro</title>
+  <style>
+    #loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: #222;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      z-index: 9999;
+      flex-direction: column;
+    }
+    .beep {
+      animation: beepText 1s infinite;
+    }
+    @keyframes beepText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="beep">HectaresPro</div>
+  </div>
+
+  <script>
+    // Play beep sound once when page loads
+    window.addEventListener('load', function() {
+      
+      
+      // Hide loading screen after 2.5 seconds and redirect to home page
+      setTimeout(function() {
+        window.location.href = "{% url 'home' %}";
+      }, 3500);
+    });
+  </script>
+</body>
+</html>

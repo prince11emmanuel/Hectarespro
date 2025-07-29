@@ -1,0 +1,13 @@
+
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="brand">Hectarespro</a>
+        <button class="toggle" id="nav-toggle">&#9776;</button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
+            <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a></li>
+            <li><a href="{% url 'blog-list' %}" class="{% if request.resolver_match.url_name == 'blog-list' %}active{% endif %}">Blogs</a></li>
+        </ul>
+    </div>
+</nav>
